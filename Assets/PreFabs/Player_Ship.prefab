@@ -10,11 +10,11 @@ GameObject:
   - 4: {fileID: 497030}
   - 212: {fileID: 21248502}
   - 114: {fileID: 11450318}
+  - 114: {fileID: 11473594}
   - 50: {fileID: 5015638}
   - 58: {fileID: 5812944}
   - 58: {fileID: 5898632}
   - 58: {fileID: 5816422}
-  - 61: {fileID: 6167300}
   m_Layer: 0
   m_Name: Player_Ship
   m_TagString: Player
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.066559434, y: -0.053286314, z: 0}
+  m_LocalPosition: {x: -0.06, y: 4.28, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -43,15 +43,15 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181570}
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.25
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!58 &5812944
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -94,20 +94,6 @@ CircleCollider2D:
   m_Offset: {x: -0.15, y: -0.09}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!61 &6167300
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181570}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.18}
-  serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.06}
 --- !u!114 &11450318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,9 +102,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 181570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb98372d893aff43baddd178dc10e9a, type: 3}
+  m_Script: {fileID: 11500000, guid: f431c895d50179343902173075d0c177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_speedSide: 40
+  max_speedUP: 60
+--- !u!114 &11473594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71e0f0713fb7eac4a8dba09a7b7dbce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 100
+  landing_tolerance: 1
+  touchdown: 0
+  crashed: 0
+  impact_hurt: 30
 --- !u!212 &21248502
 SpriteRenderer:
   m_ObjectHideFlags: 1
