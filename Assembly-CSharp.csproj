@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Controls.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Status.cs" />
+     <Compile Include="Assets\Scripts\UI\GameOver_Functions.cs" />
+     <Compile Include="Assets\Scripts\UI\Start_Screen_Func.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

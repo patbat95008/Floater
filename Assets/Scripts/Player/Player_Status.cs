@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections;
 
 public class Player_Status : MonoBehaviour {
 	public int playerHealth = 100;
@@ -9,31 +10,58 @@ public class Player_Status : MonoBehaviour {
 	public int impact_hurt = 30;
 
 	private Rigidbody2D rb;
-	private float z_speed;
+	private Player_Controls p_c;
+	private float y_speed, x_speed;
+	private bool gameover = false;
+	private float landed = .1f;
+	private GameObject g_o;
+
 	// Use this for initialization
 	void Start () {
 		rb = transform.GetComponent<Rigidbody2D>();
+		p_c = gameObject.GetComponent<Player_Controls>();
+		g_o = GameObject.FindGameObjectWithTag("GameOver");
+		g_o.SetActive(false);
 	}
 
-	// Update is called once per frame
+	// update the speed, check the player's status
 	void Update () {
-		z_speed = rb.velocity.y;
-		Debug.Log("Downward Speed = " + z_speed);
+		CheckStatus();
+		//Debug.Log("Downward Speed = " + y_speed);
 	}
 
+	void CheckStatus(){
+		y_speed = rb.velocity.y;
+		x_speed = rb.velocity.x;
+		// If the player's ship has stopped moving and has landed
+		// end the play session
+		if(y_speed <= landed && touchdown && Mathf.Abs(x_speed) < 0.25f){ 
+			p_c.enabled = false;
+		} else if (crashed || playerHealth <= 1){
+			KillPlayer();
+		}
+			
+	}
 
+	void KillPlayer(){
+		p_c.enabled = false;
+		g_o.SetActive(true);
+	}
 
 	void OnCollisionEnter2D(Collision2D col){
 		Collider2D collider = col.collider;
+
+		//Determine where the collision happened
 		Vector3 contactPoint = col.contacts[0].point;
 		Vector3 center = collider.bounds.center;
 		float colWidth = collider.bounds.size.x;
 		float colHeight = collider.bounds.size.y;
+
 		//If the collision is the side, hurt the player1
 		bool hitRight = contactPoint.x >= (center.x + colWidth/2);
 		bool hitLeft = contactPoint.x <= (center.x - colWidth/2);
 
-		if(hitRight || hitLeft){
+		if( (hitRight || hitLeft) ){
 			playerHealth -= impact_hurt;
 		}
 
@@ -42,10 +70,10 @@ public class Player_Status : MonoBehaviour {
 			&& (contactPoint.x <= (center.x + colWidth/2) )
 			&& (contactPoint.x >= (center.x - colWidth/2) );
 
-		if(hitTop && Mathf.Abs(z_speed) > landing_tolerance){ //crashed
+		if(hitTop && Mathf.Abs(y_speed) > landing_tolerance){ //crashed
 			crashed = true;
 			touchdown = false;
-		}else if(hitTop && Mathf.Abs(z_speed) < landing_tolerance){ //landed
+		}else if(hitTop && Mathf.Abs(y_speed) < landing_tolerance){ //landed
 			crashed = false;
 			touchdown = true;
 		}

@@ -15,15 +15,15 @@ public class Player_Controls : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetButton("Left_in") && !Input.GetButton("Right_in")){
-			Debug.Log("Left");
+			//Debug.Log("Left");
 			direction = Vector2.left * max_speedSide;
 			rb.AddForce(direction);
 		}else if(Input.GetButton("Right_in") && !Input.GetButton("Left_in")){
-			Debug.Log("Right");
+			//Debug.Log("Right");
 			direction = Vector2.right * max_speedSide;
 			rb.AddForce(direction);
 		}else if(Input.GetButton("Right_in") && Input.GetButton("Left_in")){
-			Debug.Log("Up");
+			//Debug.Log("Up");
 			direction = Vector2.up * max_speedUP;
 			rb.AddForce(direction);
 		}
