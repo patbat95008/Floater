@@ -47,6 +47,8 @@
   <ItemGroup>
      <Compile Include="Assets\Controler.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Game Manager\Planet_Generator.cs" />
+     <Compile Include="Assets\Scripts\Game Manager\Score_Tracker.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Controls.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Status.cs" />
      <Compile Include="Assets\Scripts\UI\GameOver_Functions.cs" />

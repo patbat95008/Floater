@@ -2,10 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\GameOver_Functions.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\Player_Status.cs" Line="24" Column="24" />
-      <File FileName="Assets\Scripts\Player\Player_Controls.cs" Line="4" Column="29" />
-      <File FileName="Assets\Scripts\UI\GameOver_Functions.cs" Line="11" Column="68" />
-      <File FileName="Assets\Scripts\UI\Start_Screen_Func.cs" Line="3" Column="35" />
+      <File FileName="Assets\Scripts\UI\GameOver_Functions.cs" Line="8" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

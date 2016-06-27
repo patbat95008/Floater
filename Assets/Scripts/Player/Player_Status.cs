@@ -15,13 +15,18 @@ public class Player_Status : MonoBehaviour {
 	private bool gameover = false;
 	private float landed = .1f;
 	private GameObject g_o;
+	private GameObject victoryUI;
 
 	// Use this for initialization
 	void Start () {
 		rb = transform.GetComponent<Rigidbody2D>();
 		p_c = gameObject.GetComponent<Player_Controls>();
+
 		g_o = GameObject.FindGameObjectWithTag("GameOver");
 		g_o.SetActive(false);
+
+		victoryUI = GameObject.FindGameObjectWithTag("Victory");
+		victoryUI.SetActive(false);
 	}
 
 	// update the speed, check the player's status
@@ -37,15 +42,19 @@ public class Player_Status : MonoBehaviour {
 		// end the play session
 		if(y_speed <= landed && touchdown && Mathf.Abs(x_speed) < 0.25f){ 
 			p_c.enabled = false;
+			TouchDown();
 		} else if (crashed || playerHealth <= 1){
 			KillPlayer();
 		}
-			
 	}
 
 	void KillPlayer(){
 		p_c.enabled = false;
 		g_o.SetActive(true);
+	}
+
+	void TouchDown(){
+		victoryUI.SetActive(true);
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
