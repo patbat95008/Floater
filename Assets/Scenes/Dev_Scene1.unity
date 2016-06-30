@@ -248,6 +248,26 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 117154, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
   m_PrefabInternal: {fileID: 1664644975}
+--- !u!114 &1661976414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661976413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904f9a4a9485e0b4a858bea2f5e43cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floaters: []
+  grounds: []
+  cliffs: []
+  walls: []
+  treasures: []
+  floater_density: 0
+  hole_density: 0
+  hole_size_y: 0
+  hole_size_x: 0
 --- !u!114 &1661976415
 MonoBehaviour:
   m_ObjectHideFlags: 0
