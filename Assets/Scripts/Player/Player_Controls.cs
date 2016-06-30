@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class Player_Controls : MonoBehaviour {
+	public bool godMode = false; //makes fuel infinite - Can't land or die
 	public float max_speedSide, max_speedUP;
 	public float fuel_Left = 100f, fuel_Right = 100f;
 	public float fuel_Cap = 100f, fuel_drain = 100f;
 	public bool cool_left = false, cool_right = false;
 
 	private Rigidbody2D rb;
-	private Vector2 direction;
+	private Vector2 direction; //direction the player moves
 	private float left_cool_timer, right_cool_timer;
 	// Use this for initialization
 	void Start () {
@@ -17,6 +18,7 @@ public class Player_Controls : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		//Check for player input - If they can move, do it
 		if(CanLeftThrust()){
 			//Debug.Log("Left");
 			direction = Vector2.left * max_speedSide;
@@ -38,6 +40,7 @@ public class Player_Controls : MonoBehaviour {
 			if(fuel_Right <= fuel_Cap) fuel_Right += Time.deltaTime * fuel_drain/2;
 		}
 
+		//Check fuel levels and cool off if too hot
 		if(fuel_Left <= 10 && !cool_left) {
 			cool_left = true;
 			left_cool_timer = 1;
@@ -47,35 +50,30 @@ public class Player_Controls : MonoBehaviour {
 			right_cool_timer = 1;
 		}
 
-		if(cool_left && left_cool_timer >= 0)
+		//Count down any cool down timers
+		if(cool_left && left_cool_timer >= 0){
 			left_cool_timer -= Time.deltaTime;
-		else
+		}else{
 			cool_left = false;
-
-		if(cool_right && right_cool_timer >= 0)
+		}
+		if(cool_right && right_cool_timer >= 0){
 			right_cool_timer -= Time.deltaTime;
-		else
+		}else{
 			cool_right = false;
-
-
+		}
 	}
 
+	//Checks for fuel level, cooldown, input, and god mode
 	public bool CanLeftThrust(){
-		return (Input.GetButton("Left_in") 
-			&& !Input.GetButton("Right_in") 
-			&& fuel_Left >= 0 
-			&& !cool_left); }
-
+		return ( (Input.GetButton("Left_in") && !Input.GetButton("Right_in") )
+			&& ( (fuel_Left >= 0 && !cool_left) || godMode) ); 
+	}
 	public bool CanRightThrust(){
-		return (Input.GetButton("Right_in") 
-			&& !Input.GetButton("Left_in") 
-			&& fuel_Right >= 0
-			&& !cool_right); }
-
+		return ( (Input.GetButton("Right_in") && !Input.GetButton("Left_in") )
+			&& ( (fuel_Right >= 0 && !cool_right) || godMode) ); 
+	}
 	public bool CanBothThrust(){
-		return (Input.GetButton("Left_in") 
-			&& Input.GetButton("Right_in") 
-			&& fuel_Left >= 0 
-			&& fuel_Right >= 0
-			&& !cool_left && !cool_right);}
+		return ( (Input.GetButton("Left_in") && Input.GetButton("Right_in") )
+			&& ( (fuel_Left >= 0 && fuel_Right >= 0 && !cool_left && !cool_right) || godMode) );
+	}
 }

@@ -98,6 +98,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 503552440}
   - 212: {fileID: 503552439}
+  - 114: {fileID: 503552441}
   m_Layer: 8
   m_Name: Background_TEST
   m_TagString: Untagged
@@ -148,6 +149,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &503552441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 503552438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db521677e49b0742b139ed59a62f269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canFollow: 0
+  follow_vertical: 0
 --- !u!1001 &642979515
 Prefab:
   m_ObjectHideFlags: 0
@@ -185,6 +199,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497030, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
+      propertyPath: godMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -244,42 +262,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10f0b02273d8a42419098e9e7e62ef80, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1661976413 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 117154, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-  m_PrefabInternal: {fileID: 1664644975}
---- !u!114 &1661976414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1661976413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 904f9a4a9485e0b4a858bea2f5e43cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  floaters: []
-  grounds: []
-  cliffs: []
-  walls: []
-  treasures: []
-  floater_density: 0
-  hole_density: 0
-  hole_size_y: 0
-  hole_size_x: 0
---- !u!114 &1661976415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1661976413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75e9587792caa57439d8388e9e1efd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
 --- !u!1001 &1664644975
 Prefab:
   m_ObjectHideFlags: 0
@@ -287,6 +269,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: grounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 416082, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -319,11 +305,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 117154, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: m_Icon
+    - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: grounds.Array.data[0]
       value: 
-      objectReference: {fileID: -1089502233064743932, guid: 0000000000000000d000000000000000,
-        type: 0}
+      objectReference: {fileID: 177866, guid: f6aeecffba4b7994bb390bc567e33c2a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
   m_IsPrefabParent: 0

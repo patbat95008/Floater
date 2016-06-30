@@ -5,9 +5,9 @@ using System.Collections;
 public class Player_Status : MonoBehaviour {
 	public int playerHealth = 100;
 	public float landing_tolerance = .75f;
-	public bool touchdown = false;
-	public bool crashed = false;
-	public int impact_hurt = 30;
+	public bool touchdown = false; //Landing was within tolerance
+	public bool crashed = false; //Landing was not.
+	public int impact_hurt = 30; //damage from non-vertical impacts
 
 	private Rigidbody2D rb;
 	private Player_Controls p_c;
@@ -16,6 +16,7 @@ public class Player_Status : MonoBehaviour {
 	private float landed = .1f;
 	private GameObject g_o;
 	private GameObject victoryUI;
+	private bool isGodMode = false; //gets god mode from Player_Controls
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,8 @@ public class Player_Status : MonoBehaviour {
 
 		victoryUI = GameObject.FindGameObjectWithTag("Victory");
 		victoryUI.SetActive(false);
+
+		isGodMode = gameObject.GetComponent<Player_Controls>().godMode;
 	}
 
 	// update the speed, check the player's status
@@ -40,10 +43,10 @@ public class Player_Status : MonoBehaviour {
 		x_speed = rb.velocity.x;
 		// If the player's ship has stopped moving and has landed
 		// end the play session
-		if(y_speed <= landed && touchdown && Mathf.Abs(x_speed) < 0.25f){ 
+		if( (y_speed <= landed && touchdown && Mathf.Abs(x_speed) < 0.25f) && !isGodMode){ 
 			p_c.enabled = false;
 			TouchDown();
-		} else if (crashed || playerHealth <= 1){
+		} else if ( (crashed || playerHealth <= 1) && !isGodMode){
 			KillPlayer();
 		}
 	}

@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UI\GameOver_Functions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game Manager\Planet_Generator.cs">
     <Files>
-      <File FileName="Assets\Scripts\UI\GameOver_Functions.cs" Line="8" Column="5" />
+      <File FileName="Assets\Scripts\Game Manager\Planet_Generator.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\Game Objects\BG_Follow.cs" Line="19" Column="141" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
