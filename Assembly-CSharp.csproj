@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Game Manager\Planet_Generator.cs" />
      <Compile Include="Assets\Scripts\Game Manager\Score_Tracker.cs" />
+     <Compile Include="Assets\Scripts\Game Objects\BG_Copy.cs" />
      <Compile Include="Assets\Scripts\Game Objects\BG_Follow.cs" />
      <Compile Include="Assets\Scripts\Game Objects\Floater.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Controls.cs" />
