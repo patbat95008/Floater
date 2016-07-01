@@ -87,8 +87,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   rotateSpeed: 0.5
-  side2side: 0
-  yConst: -0.25
+  side2side: 1
+  yConst: 0.25
 --- !u!212 &21231988
 SpriteRenderer:
   m_ObjectHideFlags: 1
