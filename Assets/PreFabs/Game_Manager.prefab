@@ -9,7 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 416082}
   - 114: {fileID: 11485068}
+  - 114: {fileID: 11400676}
   - 114: {fileID: 11421616}
+  - 114: {fileID: 11470322}
   m_Layer: 0
   m_Name: Game_Manager
   m_TagString: Untagged
@@ -90,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: 0}
+  m_LocalPosition: {x: 26, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -116,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137316}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 0, z: 0}
+  m_LocalPosition: {x: -26, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -149,7 +151,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 50, y: 1}
+  m_Size: {x: 55, y: 1}
 --- !u!61 &6199996
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -164,6 +166,19 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 100}
+--- !u!114 &11400676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16ab9b786ae99543976ed10a32a76d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floaters: []
+  floater_density: 0
 --- !u!114 &11421616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,6 +217,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canFollow: 1
   follow_vertical: 1
+--- !u!114 &11470322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d378444de2e1b884fb65de313e24da2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  background: {fileID: 114610, guid: fc4202fe26b4bd94b82d1872289bee8c, type: 2}
 --- !u!114 &11485068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,13 +240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904f9a4a9485e0b4a858bea2f5e43cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floaters:
-  - {fileID: 164744, guid: f492102ea2ef22c46abeca94ec30da1c, type: 2}
-  - {fileID: 115182, guid: fd508556092e02b4abe5fa2ce578d35c, type: 2}
-  grounds: []
+  grounds:
+  - {fileID: 177866, guid: f6aeecffba4b7994bb390bc567e33c2a, type: 2}
   cliffs: []
   treasures: []
-  floater_density: 10
+  floater_density: 20
+  space_distance: 50
   hole_density: 0
 --- !u!1001 &100100000
 Prefab:
