@@ -177,8 +177,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16ab9b786ae99543976ed10a32a76d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floaters: []
-  floater_density: 0
+  floaters:
+  - {fileID: 164744, guid: f492102ea2ef22c46abeca94ec30da1c, type: 2}
+  - {fileID: 160100, guid: 84220b75c4f5d414098bba2a8dd339a6, type: 2}
+  - {fileID: 183976, guid: 1aa34cb5303380e46b39f3fdee2e75f9, type: 2}
+  floater_density: 50
 --- !u!114 &11421616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,12 +226,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117154}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d378444de2e1b884fb65de313e24da2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 114610, guid: fc4202fe26b4bd94b82d1872289bee8c, type: 2}
+  background: {fileID: 152862, guid: 1fa4a4b426da3f0449cc2fc65d40f123, type: 2}
 --- !u!114 &11485068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,9 +245,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grounds:
   - {fileID: 177866, guid: f6aeecffba4b7994bb390bc567e33c2a, type: 2}
+  - {fileID: 106738, guid: 53a880e8c6fc9944d95e77371415d152, type: 2}
   cliffs: []
   treasures: []
-  floater_density: 20
   space_distance: 50
   hole_density: 0
 --- !u!1001 &100100000

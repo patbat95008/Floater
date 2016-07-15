@@ -96,9 +96,9 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.size
-      value: 3
+    - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: cliffs.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 416082, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
       propertyPath: m_LocalPosition.x
@@ -132,41 +132,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floater_density
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.data[0]
+    - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: cliffs.Array.data[0]
       value: 
-      objectReference: {fileID: 164744, guid: f492102ea2ef22c46abeca94ec30da1c, type: 2}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.data[1]
+      objectReference: {fileID: 158856, guid: 94d50bf949c6f5648aba4f05fa15c8ee, type: 2}
+    - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: cliffs.Array.data[1]
       value: 
-      objectReference: {fileID: 160100, guid: 84220b75c4f5d414098bba2a8dd339a6, type: 2}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.data[2]
-      value: 
-      objectReference: {fileID: 183976, guid: 1aa34cb5303380e46b39f3fdee2e75f9, type: 2}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.data[3]
-      value: 
-      objectReference: {fileID: 126298, guid: 5545552aefd9b5f4ebd7e8489a1cce31, type: 2}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.data[4]
-      value: 
-      objectReference: {fileID: 183976, guid: 1aa34cb5303380e46b39f3fdee2e75f9, type: 2}
-    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: floaters.Array.data[5]
-      value: 
-      objectReference: {fileID: 189106, guid: 22d7886d322b97646a48dd9f0667ec1e, type: 2}
-    - target: {fileID: 11470322, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 152862, guid: 1fa4a4b426da3f0449cc2fc65d40f123, type: 2}
-    - target: {fileID: 11470322, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
-      propertyPath: m_Enabled
-      value: 0
+      objectReference: {fileID: 159672, guid: 2d3a36c21f8c2794ea1b40d0442dea5c, type: 2}
+    - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: hole_density
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
@@ -208,7 +184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497030, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: godMode
