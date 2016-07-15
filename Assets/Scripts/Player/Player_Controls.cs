@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player_Controls : MonoBehaviour {
 	public bool godMode = false; //makes fuel infinite - Can't land or die
-	public float max_speedSide, max_speedUP;
+	public float force_side, force_up;
 	public float fuel_Left = 100f, fuel_Right = 100f;
 	public float fuel_Cap = 100f, fuel_drain = 100f;
 	public bool cool_left = false, cool_right = false;
@@ -21,17 +21,17 @@ public class Player_Controls : MonoBehaviour {
 		//Check for player input - If they can move, do it
 		if(CanLeftThrust()){
 			//Debug.Log("Left");
-			direction = Vector2.left * max_speedSide;
+			direction = Vector2.left * force_side;
 			rb.AddForce(direction);
 			fuel_Left -= Time.deltaTime * fuel_drain;
 		}else if( CanRightThrust()){
 			//Debug.Log("Right");
-			direction = Vector2.right * max_speedSide;
+			direction = Vector2.right * force_side;
 			rb.AddForce(direction);
 			fuel_Right -= Time.deltaTime * fuel_drain;
 		}else if(CanBothThrust()){
 			//Debug.Log("Up");
-			direction = Vector2.up * max_speedUP;
+			direction = Vector2.up * force_up;
 			rb.AddForce(direction);
 			fuel_Left -= Time.deltaTime * fuel_drain;
 			fuel_Right -= Time.deltaTime * fuel_drain;

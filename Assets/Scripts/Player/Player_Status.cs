@@ -61,33 +61,35 @@ public class Player_Status : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
-		Collider2D collider = col.collider;
+		if(col.gameObject.tag.Equals("Ground")){
+			Collider2D collider = col.collider;
 
-		//Determine where the collision happened
-		Vector3 contactPoint = col.contacts[0].point;
-		Vector3 center = collider.bounds.center;
-		float colWidth = collider.bounds.size.x;
-		float colHeight = collider.bounds.size.y;
+			//Determine where the collision happened
+			Vector3 contactPoint = col.contacts[0].point;
+			Vector3 center = collider.bounds.center;
+			float colWidth = collider.bounds.size.x;
+			float colHeight = collider.bounds.size.y;
 
-		//If the collision is the side, hurt the player1
-		bool hitRight = contactPoint.x >= (center.x + colWidth/2);
-		bool hitLeft = contactPoint.x <= (center.x - colWidth/2);
+			//If the collision is the side, hurt the player1
+			bool hitRight = contactPoint.x >= (center.x + colWidth/2);
+			bool hitLeft = contactPoint.x <= (center.x - colWidth/2);
 
-		if( (hitRight || hitLeft) ){
-			playerHealth -= impact_hurt;
-		}
+			if( (hitRight || hitLeft) ){
+				playerHealth -= impact_hurt;
+			}
 
-		//If it's from the top, check the landing
-		bool hitTop = (contactPoint.y >= (center.y + colHeight/2) )
-			&& (contactPoint.x <= (center.x + colWidth/2) )
-			&& (contactPoint.x >= (center.x - colWidth/2) );
+			//If it's from the top, check the landing
+			bool hitTop = (contactPoint.y >= (center.y + colHeight/2) )
+				&& (contactPoint.x <= (center.x + colWidth/2) )
+				&& (contactPoint.x >= (center.x - colWidth/2) );
 
-		if(hitTop && Mathf.Abs(y_speed) > landing_tolerance){ //crashed
-			crashed = true;
-			touchdown = false;
-		}else if(hitTop && Mathf.Abs(y_speed) < landing_tolerance){ //landed
-			crashed = false;
-			touchdown = true;
+			if(hitTop && Mathf.Abs(y_speed) > landing_tolerance){ //crashed
+				crashed = true;
+				touchdown = false;
+			}else if(hitTop && Mathf.Abs(y_speed) < landing_tolerance){ //landed
+				crashed = false;
+				touchdown = true;
+			}
 		}
 	}
 }
