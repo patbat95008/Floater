@@ -130,7 +130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416082, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
       propertyPath: cliffs.Array.data[0]
@@ -142,7 +142,7 @@ Prefab:
       objectReference: {fileID: 159672, guid: 2d3a36c21f8c2794ea1b40d0442dea5c, type: 2}
     - target: {fileID: 11485068, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
       propertyPath: hole_density
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
@@ -184,11 +184,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 497030, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: godMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: force_side
@@ -197,6 +197,10 @@ Prefab:
     - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: force_up
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
+      propertyPath: fuel_drain
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
@@ -238,7 +242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438368, guid: 1fa4a4b426da3f0449cc2fc65d40f123, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fa4a4b426da3f0449cc2fc65d40f123, type: 2}
@@ -280,7 +284,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453098, guid: b7b4600ea9e5a7d4b8bc3f9a1f6d9d89, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22453098, guid: b7b4600ea9e5a7d4b8bc3f9a1f6d9d89, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -432,4 +436,4 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3

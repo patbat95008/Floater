@@ -20,28 +20,33 @@ public class Planet_Generator : MonoBehaviour {
 
 		//Carve holes into the ground randomly (2 cliffs replace 2 ground tiles)
 		for(int i = 0; i < hole_density; i++){
-			int randG = (int)Random.Range(1, ground_tiles.Length - 1);
+			int randG = (int)Random.Range(3, ground_tiles.Length - 4);
+			int h_size = (int)Random.Range(2, 4);
 			//int randC = (int)Random.Range(0, cliffs.Length);
 
 			if(ground_tiles[randG].tag.Equals("Ground")){
 				Vector3 g_pos1 = new Vector3(ground_tiles[randG].transform.position.x, 
 								ground_tiles[randG].transform.position.y, 
 								0);
-				Vector3 g_pos2 = new Vector3(ground_tiles[randG + 1].transform.position.x, 
-					ground_tiles[randG + 1].transform.position.y, 
-					0);
+				Vector3 g_pos2 = new Vector3(ground_tiles[randG + h_size].transform.position.x, 
+								ground_tiles[randG + h_size].transform.position.y, 
+								0);
+
 
 				Object cliff1 = Instantiate(cliffs[0], //Left cliff
 								g_pos1,
 								new Quaternion());
+				
 				Object cliff2 = Instantiate(cliffs[1],
 								g_pos2,
 								new Quaternion());
+				for(int j = 0; j <= h_size; j++){
+					Destroy(ground_tiles[randG + j]);
+					ground_tiles[randG + j] = null;
+				}
 
-				Destroy(ground_tiles[randG]);
-				Destroy(ground_tiles[randG + 1]);
-				ground_tiles[randG] = (GameObject)cliff1;
-				ground_tiles[randG + 1] = (GameObject)cliff2;
+				//ground_tiles[randG] = (GameObject)cliff1;
+				//ground_tiles[randG + h_size] = (GameObject)cliff2;
 			}
 		}
 		//Add treasures

@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 426322}
   - 212: {fileID: 21223426}
-  - 65: {fileID: 6544526}
+  - 61: {fileID: 6174844}
   m_Layer: 0
   m_Name: CliffL1
   m_TagString: Untagged
@@ -24,24 +24,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.846409, y: -35.786163, z: 0}
+  m_LocalPosition: {x: 19.351215, y: -46.93136, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6544526
-BoxCollider:
+--- !u!61 &6174844
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158856}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.25, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 0.2}
-  m_Center: {x: -0.25, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 1}
 --- !u!212 &21223426
 SpriteRenderer:
   m_ObjectHideFlags: 1
