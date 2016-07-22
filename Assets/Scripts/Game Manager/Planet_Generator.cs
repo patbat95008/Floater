@@ -54,7 +54,8 @@ public class Planet_Generator : MonoBehaviour {
 				g_pos2,
 				new Quaternion());
 
-			hole_locations[i] = g_pos1;
+			//hole_locations[i] = g_pos1;
+
 
 			for(int j = 0; j <= h_size; j++){
 				Destroy(ground_tiles[randG + j]);
@@ -67,14 +68,18 @@ public class Planet_Generator : MonoBehaviour {
 	}
 
 	void carve_caverns(){
+		//initialize a 2d array of tiled ground objects
 		for(int i = 0; i < 50; i++){
 			for(int j = 0; j < fill_length; j++){
 				Vector3 g_pos = new Vector3(-50+i*2, -j*2 - (space_distance + 2 ), 0);
 				Object g = Instantiate(ground_fill[0],
-					g_pos, new Quaternion());
+							g_pos, new Quaternion());
 				underGround[i,j] = (GameObject) g;
 			}
 		}
+
+		//Carve out a continious hole for each hole_location
+
 	}
 
 	// Update is called once per frame
