@@ -11,36 +11,56 @@ public class Player_Controls : MonoBehaviour {
 	private Rigidbody2D rb;
 	private Vector2 direction; //direction the player moves
 	private float left_cool_timer, right_cool_timer;
+	private GameObject thrust_L, thrust_R; //Sprites for thrusting effect
+	private Vector2 leftForce = new Vector2(-1f, 0.25f);
+	private Vector2 rightForce = new Vector2(1f, 0.25f);
 	// Use this for initialization
 	void Start () {
 		rb = transform.GetComponent<Rigidbody2D>();
+		thrust_L = gameObject.transform.GetChild(0).gameObject;
+		thrust_R = gameObject.transform.GetChild(1).gameObject;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//Check for player input - If they can move, do it
+		moveControl();
+
+		//Check fuel levels and cool off if too hot
+		//Count down any cool down timers
+		thrustControl();
+	}
+
+	private void moveControl(){
 		if(CanLeftThrust()){
 			//Debug.Log("Left");
-			direction = Vector2.left * force_side;
+			thrust_R.GetComponent<SpriteRenderer>().enabled = true;
+			direction = leftForce * force_side;
 			rb.AddForce(direction);
 			fuel_Left -= Time.deltaTime * fuel_drain;
 		}else if( CanRightThrust()){
 			//Debug.Log("Right");
-			direction = Vector2.right * force_side;
+			thrust_L.GetComponent<SpriteRenderer>().enabled = true;
+			direction = rightForce * force_side;
 			rb.AddForce(direction);
 			fuel_Right -= Time.deltaTime * fuel_drain;
 		}else if(CanBothThrust()){
 			//Debug.Log("Up");
 			direction = Vector2.up * force_up;
+			thrust_R.GetComponent<SpriteRenderer>().enabled = true;
+			thrust_L.GetComponent<SpriteRenderer>().enabled = true;
 			rb.AddForce(direction);
 			fuel_Left -= Time.deltaTime * fuel_drain;
 			fuel_Right -= Time.deltaTime * fuel_drain;
 		}else{
+			thrust_L.GetComponent<SpriteRenderer>().enabled = false;
+			thrust_R.GetComponent<SpriteRenderer>().enabled = false;
 			if(fuel_Left <= fuel_Cap) fuel_Left += Time.deltaTime * fuel_drain/2;
 			if(fuel_Right <= fuel_Cap) fuel_Right += Time.deltaTime * fuel_drain/2;
 		}
+	}
 
-		//Check fuel levels and cool off if too hot
+	private void thrustControl(){
 		if(fuel_Left <= 10 && !cool_left) {
 			cool_left = true;
 			left_cool_timer = 1;
@@ -50,7 +70,6 @@ public class Player_Controls : MonoBehaviour {
 			right_cool_timer = 1;
 		}
 
-		//Count down any cool down timers
 		if(cool_left && left_cool_timer >= 0){
 			left_cool_timer -= Time.deltaTime;
 		}else{
