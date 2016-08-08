@@ -168,6 +168,10 @@ Prefab:
       propertyPath: space_distance
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 11400676, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
+      propertyPath: floater_density
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2efd3ffe4ccfeb49926484a9378e076, type: 2}
   m_IsPrefabParent: 0
@@ -209,6 +213,10 @@ Prefab:
     - target: {fileID: 497030, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450318, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
+      propertyPath: godMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e1e373c9d29ddf43a75acc4a368491a, type: 2}
@@ -332,6 +340,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22453098, guid: b7b4600ea9e5a7d4b8bc3f9a1f6d9d89, type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441454, guid: b7b4600ea9e5a7d4b8bc3f9a1f6d9d89, type: 2}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452316, guid: b7b4600ea9e5a7d4b8bc3f9a1f6d9d89, type: 2}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

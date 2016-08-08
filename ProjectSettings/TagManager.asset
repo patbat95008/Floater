@@ -8,6 +8,7 @@ TagManager:
   - GameOver
   - Victory
   - Ground
+  - Score
   layers:
   - Default
   - TransparentFX

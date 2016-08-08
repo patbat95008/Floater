@@ -9,20 +9,27 @@ public class Planet_Generator : MonoBehaviour {
 
 	private float managerPOS;
 	private GameObject[] ground_tiles;
-	private Vector3[] hole_locations;
+	private int[] hole_locations;
 	private GameObject[,] underGround;
 	// Use this for initialization
 	void Start () {
-		//Create level ground
-		for(int i = -50; i <= 50; i+= 2){
+		underGround = new GameObject[fill_length, 51];
+		//Create level ground + underground layer 1
+		for(int i = 0; i <= 100; i+= 2){
 			int rand = (int)Random.Range(0,grounds.Length);
+			//Create flat plane of dirt
 			Instantiate(grounds[rand],
-				new Vector3(i, -space_distance, 0),
+				new Vector3(i-50, -space_distance, 0),
 				new Quaternion());
+
+			//Create top underground layer (To remove chunks during carve_holes)
+			underGround[0,i/2] = (GameObject) Instantiate(ground_fill[0],
+			new Vector3(i-50, -space_distance-2, 0),
+			new Quaternion());
 		}
 		ground_tiles = GameObject.FindGameObjectsWithTag("Ground"); //Populate ground list
-		hole_locations = new Vector3[hole_density + 1];
-		underGround = new GameObject[50,fill_length];
+		hole_locations = new int[hole_density + 1];
+
 		//Carve holes into the ground randomly (2 cliffs replace 2 ground tiles, remainder is empty space)
 		carve_holes();
 		//Add caverns
@@ -33,7 +40,7 @@ public class Planet_Generator : MonoBehaviour {
 	//Mark where the holes are dug for cavern creation
 	void carve_holes(){
 		for(int i = 0; i <= hole_density; i++){
-			int randG = (int)Random.Range(4, ground_tiles.Length - 6);
+			int randG = (int)Random.Range(25, ground_tiles.Length - 25);
 			int h_size = (int)Random.Range(2, 4);
 			//keep looking if there isn't a valid hole yet
 			while(ground_tiles[randG] == null || ground_tiles[randG+h_size] ==null){
@@ -53,9 +60,17 @@ public class Planet_Generator : MonoBehaviour {
 			Object cliff2 = Instantiate(cliffs[1], //Set right cliff
 				g_pos2,
 				new Quaternion());
+			/*
+			Destroy(underGround[0, randG + (h_size/2)]);
+			underGround[0, randG + (h_size/2)] = null;
+			*/
+			int layerWidth = (int)Random.Range(1, 3);
+			for(int k = 0; k < layerWidth; k++){
+				Destroy(underGround[0, randG + k]);
+				underGround[0, randG + k] = null;
+			}
 
-			//hole_locations[i] = g_pos1;
-
+			hole_locations[i] = randG;
 
 			for(int j = 0; j <= h_size; j++){
 				Destroy(ground_tiles[randG + j]);
@@ -70,16 +85,30 @@ public class Planet_Generator : MonoBehaviour {
 	void carve_caverns(){
 		//initialize a 2d array of tiled ground objects
 		for(int i = 0; i < 50; i++){
-			for(int j = 0; j < fill_length; j++){
-				Vector3 g_pos = new Vector3(-50+i*2, -j*2 - (space_distance + 2 ), 0);
+			for(int j = 0; j <= fill_length; j++){
+				Vector3 g_pos = new Vector3(-50+i*2, -j*2 - (space_distance + 4 ), 0);
 				Object g = Instantiate(ground_fill[0],
-							g_pos, new Quaternion());
+							g_pos, 
+							new Quaternion());
+				
 				underGround[i,j] = (GameObject) g;
 			}
 		}
-
 		//Carve out a continious hole for each hole_location
-
+		for(int i = 0; i < hole_locations.Length; i++){
+			for(int j = 0; j <= fill_length-1; j++){
+				int layerWidth = (int)Random.Range(3, 4);
+				int offset = (int)Random.Range(-2,2);
+				for(int k = 0; k < layerWidth; k++){
+					if(hole_locations[i]+offset+k < 0)
+						continue;
+					Destroy(underGround[hole_locations[i]+offset+k, j]);
+					underGround[hole_locations[i]+offset+k, j] = null;
+				}
+				Destroy(underGround[hole_locations[i], j+1]);
+				underGround[hole_locations[i], j+1] = null;
+			}
+		}
 	}
 
 	// Update is called once per frame
