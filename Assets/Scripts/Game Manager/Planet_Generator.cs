@@ -95,7 +95,7 @@ public class Planet_Generator : MonoBehaviour {
 			}
 		}
 		//Carve out a continious hole for each hole_location
-		for(int i = 0; i < hole_locations.Length; i++){
+		/*for(int i = 0; i < hole_locations.Length; i++){//Carves straignt, empty holes
 			for(int j = 0; j <= fill_length-1; j++){
 				int layerWidth = (int)Random.Range(3, 4);
 				int offset = (int)Random.Range(-2,2);
@@ -108,6 +108,36 @@ public class Planet_Generator : MonoBehaviour {
 				Destroy(underGround[hole_locations[i], j+1]);
 				underGround[hole_locations[i], j+1] = null;
 			}
+		}*/
+		for(int i = 0; i < hole_locations.Length; i++){
+			carve(hole_locations[i], 0);
+		}
+	}
+
+	//carves in a downward direction until it runs into an edge
+	void carve(int x, int y){
+		//check for overflow, if so, stop
+		if(x < 0 || x > 50 || y < 0 || y > fill_length)
+			return;
+
+		//destroy current x,y location
+		Destroy(underGround[x, y]);
+		underGround[x, y] = null;
+
+		//determine next move
+		int dir = (int) Random.Range(0, 10);
+		if(dir < 5){
+			//carve down
+			carve(x, y+1);
+		}else if(dir <= 7){
+			//carve left
+			carve(x-1, y);
+		}else if(dir <= 9){
+			//carve right
+			carve(x+1, y);
+		}else{
+			//carve up
+			carve(x, y-1);
 		}
 	}
 
