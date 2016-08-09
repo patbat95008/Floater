@@ -46,3 +46,9 @@ Temp/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Unity binary files
+*.prefab
+*.meta
+*.userprefs
+*.dwlt
