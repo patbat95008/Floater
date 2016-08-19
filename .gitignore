@@ -52,4 +52,5 @@ Temporary Items
 *.meta
 *.userprefs
 *.dwlt
+*.csproj
 Library/
