@@ -53,4 +53,6 @@ Temporary Items
 *.userprefs
 *.dwlt
 *.csproj
+*.dll
+*.mdb
 Library/
