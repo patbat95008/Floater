@@ -5,6 +5,7 @@ public class Planet_Generator : MonoBehaviour {
 	public GameObject[] grounds; //surface pieces
 	public GameObject[] cliffs; //surface hole pieces
 	public GameObject[] ground_fill; //underground fill in pieces
+	public Sprite[] ground_sprites;
 	public int space_distance, hole_density, fill_length = 50;
 
 	private float managerPOS;
@@ -103,9 +104,18 @@ public class Planet_Generator : MonoBehaviour {
 	//carves in a downward direction until it runs into an edge
 	void carve(int x, int y){
 		//check for overflow, if so, stop
-		if(x < 0 || x > 50 || y < 0 || y > fill_length)
+		if((x < 0 || x > 50) || (y < 0 || y > fill_length))
 			return;
 
+		//Set the surrounding tiles to face the hole
+		if(x-1 >= 0 && underGround[x-1,y] != null)
+			underGround[x-1,y].GetComponent<SpriteRenderer>().sprite = ground_sprites[1];
+		if(x+1 <= 50 && underGround[x+1,y] != null)
+			underGround[x+1,y].GetComponent<SpriteRenderer>().sprite = ground_sprites[2];
+		if(y-1 >= 0 && underGround[x,y-1] != null)
+			underGround[x,y-1].GetComponent<SpriteRenderer>().sprite = ground_sprites[3];
+		if(y+1 < fill_length && underGround[x,y+1] != null)
+			underGround[x,y+1].GetComponent<SpriteRenderer>().sprite = ground_sprites[0];
 		//destroy current x,y location
 		Destroy(underGround[x, y]);
 		underGround[x, y] = null;
