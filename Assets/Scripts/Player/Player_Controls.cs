@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player_Controls : MonoBehaviour {
@@ -14,15 +15,23 @@ public class Player_Controls : MonoBehaviour {
 	private GameObject thrust_L, thrust_R; //Sprites for thrusting effect
 	private Vector2 leftForce = new Vector2(-1f, 0.25f);
 	private Vector2 rightForce = new Vector2(1f, 0.25f);
+	private Slider slid_L, slid_R;
 	// Use this for initialization
 	void Start () {
 		rb = transform.GetComponent<Rigidbody2D>();
 		thrust_L = gameObject.transform.GetChild(0).gameObject;
 		thrust_R = gameObject.transform.GetChild(1).gameObject;
+
+		slid_L = GameObject.Find("Left_Thrust").GetComponent<Slider>();
+		slid_R = GameObject.Find("Right_Thrust").GetComponent<Slider>();
 	}
 
 	// Update is called once per frame
 	void Update () {
+		//Display current status
+		slid_L.value = fuel_Cap-fuel_Left;
+		slid_R.value = fuel_Cap-fuel_Right;
+
 		//Check for player input - If they can move, do it
 		moveControl();
 
@@ -38,12 +47,14 @@ public class Player_Controls : MonoBehaviour {
 			direction = leftForce * force_side;
 			rb.AddForce(direction);
 			fuel_Left -= Time.deltaTime * fuel_drain;
+			if(fuel_Right <= fuel_Cap) fuel_Right += Time.deltaTime * fuel_drain/2;
 		}else if( CanRightThrust()){
 			//Debug.Log("Right");
 			thrust_L.GetComponent<SpriteRenderer>().enabled = true;
 			direction = rightForce * force_side;
 			rb.AddForce(direction);
 			fuel_Right -= Time.deltaTime * fuel_drain;
+			if(fuel_Left <= fuel_Cap) fuel_Left += Time.deltaTime * fuel_drain/2;
 		}else if(CanBothThrust()){
 			//Debug.Log("Up");
 			direction = Vector2.up * force_up;

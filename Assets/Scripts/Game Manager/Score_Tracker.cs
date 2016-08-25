@@ -10,7 +10,7 @@ public class Score_Tracker : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
-	void Update (){
+	void FixedUpdate (){
 		score = (int)Mathf.Abs( Mathf.Abs(gameObject.transform.position.y) - Mathf.Abs(player.transform.position.y) );
 	}
 }
